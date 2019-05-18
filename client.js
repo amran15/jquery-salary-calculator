@@ -2,45 +2,61 @@ $(document).ready(readyNow);
 
 function readyNow() {
     console.log('Hello World')
-    //submit button to collect the information
-    $('#submitButton').on('click', newInfo);
+        //submit button 
+    $('#submitButton').on('click', newInfo); //callback function
+    $('#moneyTable').on('click', '.deleteMoney', deleteInfo);
 }
-function newInfo() {
-    console.log('submit button is clicked')
 
-    let firstName = $('#firstName').val();
-    let lastName = $('#firstName').val();
-    let id = $('#id').val();
-    let title = $('#title').val();
-    let annualSalary = $('#annualSalary').val();
+function newInfo(event) {
+    console.log('submit button is clicked')
+    let employeeData = {
+        firstName: $('#firstName').val(),
+        lastName: $('#firstName').val(),
+        id: $('#id').val(),
+        title: $('#title').val(),
+        annualSalary: $('#annualSalary').val()
+    }
 
     //submit button to calculate monthly costs
     //append information to the DOM
-
     $('#moneyTable').append(
-       `<tr>
-            <td>${firstName}</td>
-            <td>${lastName}</td>
-            <td>${id}</td>
-            <td>${title}</td>
-            <td>${annualSalary}</td>
+        `<tr>
+            <td>${employeeData.firstName}</td>
+            <td>${employeeData.lastName}</td>
+            <td>${employeeData.id}</td>
+            <td>${employeeData.title}</td>
+            <td>${employeeData.annualSalary}</td>
+            <td><button class="deleteMoney">Delete</button></td>
         </tr>`
     )
 
-    firstName = $('#firstName').val('');
-    lastName = $('#firstName').val('');
-    id = $('#id').val('');
-    title = $('#title').val('');
-    annualSalary = $('#annualSalary').val('');
+    $('#firstName').val('');
+    $('#firstName').val('');
+    $('#id').val('');
+    $('#title').val('');
+    $('#annualSalary').val('');
 
-
+    event.preventDefault(); //Prevent the form submit default
 
 }
 
+function deleteInfo() {
+    console.log('info is deleted');
+    $(this).closest(`tr`).remove();
 
-//using stored data, calculate monthly costs 
-//append monthly costs to the DOM
+    //using stored data, calculate monthly costs 
+    //append monthly costs to the DOM
 
-//If total monthly cost exceeds $20,000, add a red background color 
+    let total = 0;
+    let totalShmoney = ('.shmoney');
+    for (let i = 0; i < totalShmoney.length; i++) {
+        $('#monthlyShmoney').on('', totalShmoney[i]);
 
-//create a delete button that removes employees from DOM
+    }
+
+    //if total monthly cost exceeds $20,000, add a red background
+    if (totalShmoney > $20000) {
+        ('#monthlyShmoney').css('background -color', 'red');
+    }
+
+}

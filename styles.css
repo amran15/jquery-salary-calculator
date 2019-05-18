@@ -1,0 +1,29 @@
+        body {
+            background-color: antiquewhite
+        }
+        
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        
+        th,
+        td {
+            padding: 4px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: lightgrey;
+        }
+        
+        tr:nth-child(even) {
+            background-color: lightgrey;
+            color: black;
+        }
+        
+        tr:nth-child(odd) {
+            background-color: lightpink;
+        }

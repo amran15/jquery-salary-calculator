@@ -10,16 +10,19 @@
     <script src="client.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<h1>Salary Calculator</h1>
-<h2>Add Employees</h2>
-<input id="firstName" type="text" placeholder="First name">
-<input id="lastName" type="text" placeholder="Last name">
-<input id="id" type="text" placeholder="ID">
-<input id="title" type="text" placeholder="Title">
-<input id="annualSalary" type="text" placeholder="Annual Salary">
-<button id="submitButton">Submit</button>
 
 <body>
+    <form>
+        <h1>Salary Calculator</h1>
+        <h2>Add Employees</h2>
+        <input id="firstName" type="text" placeholder="First name">
+        <input id="lastName" type="text" placeholder="Last name">
+        <input id="id" type="text" placeholder="ID">
+        <input id="title" type="text" placeholder="Title">
+        <input id="annualSalary" type="text" placeholder="Annual Salary">
+        <button id="submitButton">Submit</button>
+    </form>Ï
+
     <table>
         <thead>
             <tr>
@@ -28,6 +31,7 @@
                 <th>ID</th>
                 <th>Title</th>
                 <th>Annual Salary</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody id="moneyTable">
@@ -36,8 +40,8 @@
                 <td>Barber</td>
                 <td>4521</td>
                 <td>Team Lead</td>
-                <td>$80,000</td>
-                <td><button class="deleteJenButton">Delete</button></td>
+                <td id="shmoney">$80,000</td>
+                <td><button class="deleteMoney">Delete</button></td>
                 </td>
             </tr>
             <tr>
@@ -45,23 +49,22 @@
                 <td>Moss</td>
                 <td>8724</td>
                 <td>Support Team</td>
-                <td>$58,000</td>
-                <td><button class="deleteMauriceButton">Delete</button></td>
+                <td id="shmoney">$58,000</td>
+                <td><button class="deleteMoney">Delete</button></td>
                 </td>
             </tr>
-        </tbody>
-        <tfoot>
             <tr>
                 <td>Roy</td>
                 <td>Smith</td>
                 <td>9623</td>
                 <td>Quality Assurance</td>
-                <td>$48,000</td>
-                <td><button class="deleteRoyButton">Delete</button></td>
+                <td id="shmoney">$48,000</td>
+                <td><button class="deleteMoney">Delete</button></td>
             </tr>
-        </tfoot>
+        </tbody>
     </table>
     <h3>Employees</h3>
+    <div class="monthlyShmoney">Monthly Calculator $$</div>
 </body>
 
 </html>
