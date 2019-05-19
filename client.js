@@ -1,5 +1,7 @@
 $(document).ready(readyNow);
 
+let totalSal = [80000, 58000, 48000];
+
 function readyNow() {
     console.log('Hello World')
         //submit button 
@@ -11,11 +13,24 @@ function newInfo(event) {
     console.log('submit button is clicked')
     let employeeData = {
         firstName: $('#firstName').val(),
-        lastName: $('#firstName').val(),
+        lastName: $('#lastName').val(),
         id: $('#id').val(),
         title: $('#title').val(),
-        annualSalary: $('#annualSalary').val()
+        annualSalary: Number($('#annualSalary').val())
     }
+
+    totalSal.push(employeeData.annualSalary);
+
+    console.log(totalSal);
+
+    let sum = 0;
+    for (let i = 0; i < totalSal.length; i++) {
+        sum += totalSal[i];
+    }
+
+    let ave = sum / 12;
+    console.log(ave);
+
 
     //submit button to calculate monthly costs
     //append information to the DOM
@@ -25,10 +40,14 @@ function newInfo(event) {
             <td>${employeeData.lastName}</td>
             <td>${employeeData.id}</td>
             <td>${employeeData.title}</td>
-            <td>${employeeData.annualSalary}</td>
+            <td>$${employeeData.annualSalary }</td>
             <td><button class="deleteMoney">Delete</button></td>
         </tr>`
     )
+
+    let el = $('.aveDisplay');
+    el.empty();
+    el.append(ave);
 
     $('#firstName').val('');
     $('#firstName').val('');
@@ -36,27 +55,20 @@ function newInfo(event) {
     $('#title').val('');
     $('#annualSalary').val('');
 
-    event.preventDefault(); //Prevent the form submit default
 
+    event.preventDefault(); //Prevent the form submit default
 }
 
 function deleteInfo() {
     console.log('info is deleted');
-    $(this).closest(`tr`).remove();
-
-    //using stored data, calculate monthly costs 
-    //append monthly costs to the DOM
-
-    let total = 0;
-    let totalShmoney = ('.shmoney');
-    for (let i = 0; i < totalShmoney.length; i++) {
-        $('#monthlyShmoney').on('', totalShmoney[i]);
-
-    }
+    $(this).closest(`tr`).remove(); //jQuery selector
+    moMoney();
+}
+//using stored data, calculate monthly costs 
+//append monthly costs to the DOM
+//create new Function for displaying total Monthly money
+function moMoney() {
 
     //if total monthly cost exceeds $20,000, add a red background
-    if (totalShmoney > $20000) {
-        ('#monthlyShmoney').css('background -color', 'red');
-    }
 
 }

@@ -27,3 +27,7 @@
         tr:nth-child(odd) {
             background-color: lightpink;
         }
+        
+        .monthlyCal {
+            text-align: right;
+        }
