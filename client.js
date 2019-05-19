@@ -29,6 +29,7 @@ function newInfo(event) {
     for (let i = 0; i < totalSal.length; i++) {
         sum += totalSal[i];
     }
+
     let ave = sum / 12;
     console.log(ave);
 
@@ -59,6 +60,10 @@ function newInfo(event) {
 
 
     event.preventDefault(); //Prevent the form submit default
+
+    if (20000 < ave) {
+        $(".aveDisplay").css('background-color', 'red');
+    }
 }
 
 function deleteInfo() {
