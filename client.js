@@ -23,11 +23,12 @@ function newInfo(event) {
 
     console.log(totalSal);
 
+    //using stored data, calculate monthly costs 
+    //append monthly costs to the DOM
     let sum = 0;
     for (let i = 0; i < totalSal.length; i++) {
         sum += totalSal[i];
     }
-
     let ave = sum / 12;
     console.log(ave);
 
@@ -35,7 +36,7 @@ function newInfo(event) {
     //submit button to calculate monthly costs
     //append information to the DOM
     $('#moneyTable').append(
-        `<tr>
+            `<tr>
             <td>${employeeData.firstName}</td>
             <td>${employeeData.lastName}</td>
             <td>${employeeData.id}</td>
@@ -43,8 +44,9 @@ function newInfo(event) {
             <td>$${employeeData.annualSalary }</td>
             <td><button class="deleteMoney">Delete</button></td>
         </tr>`
-    )
-
+        )
+        //using stored data, calculate monthly costs 
+        //append monthly costs to the DOM
     let el = $('.aveDisplay');
     el.empty();
     el.append(ave);
@@ -62,13 +64,6 @@ function newInfo(event) {
 function deleteInfo() {
     console.log('info is deleted');
     $(this).closest(`tr`).remove(); //jQuery selector
-    moMoney();
 }
-//using stored data, calculate monthly costs 
-//append monthly costs to the DOM
-//create new Function for displaying total Monthly money
-function moMoney() {
 
-    //if total monthly cost exceeds $20,000, add a red background
-
-}
+//if total monthly cost exceeds $20,000, add a red background
