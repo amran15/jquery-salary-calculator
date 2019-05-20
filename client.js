@@ -7,6 +7,7 @@ function readyNow() {
         //submit button 
     $('#submitButton').on('click', newInfo); //callback function
     $('#moneyTable').on('click', '.deleteMoney', deleteInfo);
+    $('#aveDisplay').on('click', '.annualSalary', deleteInfo);
 }
 
 function newInfo(event) {
@@ -61,6 +62,7 @@ function newInfo(event) {
 
     event.preventDefault(); //Prevent the form submit default
 
+    //if total monthly cost exceeds $20,000, add a red background
     if (20000 < ave) {
         $(".aveDisplay").css('background-color', 'red');
     }
@@ -70,5 +72,3 @@ function deleteInfo() {
     console.log('info is deleted');
     $(this).closest(`tr`).remove(); //jQuery selector
 }
-
-//if total monthly cost exceeds $20,000, add a red background
